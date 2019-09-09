@@ -3,6 +3,7 @@ import './App.css';
 
 import GitHubCard from './components/GitHubCard';
 import FollowersList from './components/FollowersList';
+import { Card, Header, Grid } from 'semantic-ui-react';
 
 class App extends React.Component {
   state = {
@@ -27,8 +28,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <GitHubCard githubUserData={this.state.githubUserData} />
-        <FollowersList followers={this.state.followers} />
+        <Header as="h2">{this.state.githubUserData.name} {`&`} Followers</Header>
+        <Grid centered>
+          <GitHubCard githubUserData={this.state.githubUserData} />
+
+          <Card.Group centered>
+            <FollowersList followers={this.state.followers} />
+          </Card.Group>
+        </Grid>
       </div>
     );
   }

@@ -8,11 +8,11 @@ class FollowersList extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         {this.props.followers.map(follower => {
           return <GitHubCard githubUserData={follower} />
         })}
-      </div>
+      </>
     )
   }
 }
